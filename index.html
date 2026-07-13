@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise ERP — Technical Case Study</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        pre, code {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .sidebar-link.active {
+            color: #3b82f6;
+            border-left-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <header class="bg-gradient-to-r top-0 z-50 from-slate-900 via-indigo-950 to-slate-900 text-white py-16 px-6 border-b border-slate-800 shadow-lg">
+        <div class="max-w-7xl mx-auto animate__animated animate__fadeIn">
+            <div class="flex items-center space-x-3 text-indigo-400 text-sm font-semibold tracking-wider uppercase mb-3">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Architectural Blueprint & DevOps Infrastructure</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">
+                Enterprise ERP
+            </h1>
+            <p class="mt-4 text-xl text-slate-400 max-w-3xl font-light">
+                A technical case study on building a modular Identity and Access Management foundation using React 19, Express, and Prisma, backed by an automated GitOps delivery pipeline.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2.5">
+                <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-md border border-slate-700 font-mono"><i class="fa-brands fa-react text-sky-400 mr-1.5"></i>React 19 / Vite</span>
+                <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-md border border-slate-700 font-mono"><i class="fa-brands fa-node-js text-green-400 mr-1.5"></i>Express (TS)</span>
+                <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-md border border-slate-700 font-mono"><i class="fa-solid fa-database text-blue-400 mr-1.5"></i>PostgreSQL & Prisma</span>
+                <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-md border border-slate-700 font-mono"><i class="fa-brands fa-digitalocean text-sky-500 mr-1.5"></i>DO Droplet</span>
+                <span class="bg-indigo-950 text-indigo-300 text-xs px-3 py-1.5 rounded-md border border-indigo-800 font-mono"><i class="fa-brands fa-github-actions mr-1.5"></i>CI/CD GitOps</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <aside class="lg:w-64 flex-shrink-0 lg:sticky lg:top-8 h-fit">
+                <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+                    <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-3 mb-3">Documentation Sections</p>
+                    <nav class="space-y-1">
+                        <a href="#overview" class="sidebar-link block px-3 py-2 text-sm font-medium text-slate-600 border-l-2 border-transparent hover:text-slate-900 hover:bg-slate-50 rounded-r-md transition-all"><i class="fa-solid fa-circle-info w-5 text-slate-400"></i>1. Overview & Problem</a>
+                        <a href="#architecture" class="sidebar-link block px-3 py-2 text-sm font-medium text-slate-600 border-l-2 border-transparent hover:text-slate-900 hover:bg-slate-50 rounded-r-md transition-all"><i class="fa-solid fa-sitemap w-5 text-slate-400"></i>2. Architecture & Pattern</a>
+                        <a href="#database" class="sidebar-link block px-3 py-2 text-sm font-medium text-slate-600 border-l-2 border-transparent hover:text-slate-900 hover:bg-slate-50 rounded-r-md transition-all"><i class="fa-solid fa-database w-5 text-slate-400"></i>3. Schema & Modeling</a>
+                        <a href="#security" class="sidebar-link block px-3 py-2 text-sm font-medium text-slate-600 border-l-2 border-transparent hover:text-slate-900 hover:bg-slate-50 rounded-r-md transition-all"><i class="fa-solid fa-lock w-5 text-slate-400"></i>4. Security & RBAC</a>
+                        <a href="#performance" class="sidebar-link block px-3 py-2 text-sm font-medium text-slate-600 border-l-2 border-transparent hover:text-slate-900 hover:bg-slate-50 rounded-r-md transition-all"><i class="fa-solid fa-gauge-high w-5 text-slate-400"></i>5. Frontend Performance</a>
+                        <a href="#milestones" class="sidebar-link block px-3 py-2 text-sm font-medium text-slate-600 border-l-2 border-transparent hover:text-slate-900 hover:bg-slate-50 rounded-r-md transition-all"><i class="fa-solid fa-flag w-5 text-slate-400"></i>6. Status & Next Steps</a>
+                        <a href="#devops" class="sidebar-link block px-3 py-2 text-sm font-medium text-slate-600 border-l-2 border-transparent hover:text-slate-900 hover:bg-slate-50 rounded-r-md transition-all"><i class="fa-solid fa-terminal w-5 text-indigo-500 font-bold"></i>7. DevOps & Deployment</a>
+                    </nav>
+                </div>
+            </aside>
+
+            <main class="flex-1 space-y-12 max-w-4xl">
+                
+                <section id="overview" class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm transition-all hover:shadow-md animate__animated animate__fadeInUp">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="p-2.5 bg-blue-50 text-blue-600 rounded-lg"><i class="fa-solid fa-circle-info text-xl"></i></div>
+                        <h2 class="text-2xl font-bold text-slate-950">1. Project Overview & Problem Statement</h2>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">
+                        This project is a modular Enterprise Resource Planning (ERP) application under active development. It uses a <strong>React 19 / Vite single-page application (SPA)</strong> for the operational interface and a <strong>TypeScript Express API backed by PostgreSQL through Prisma ORM</strong>. The foundation currently concentrates on Identity and Access Management (IAM): user creation, role assignment, a permissions matrix, login, and protected client routes.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed mt-4">
+                        An ERP becomes difficult to evolve when each business domain owns isolated data and authorization rules. The design addresses that problem by establishing a shared identity layer and a consistent API/data boundary before domain modules are added. This supports:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                            <h4 class="font-semibold text-slate-900 mb-1"><i class="fa-solid fa-shield-halved text-indigo-500 mr-2"></i>Consistent Authorization</h4>
+                            <p class="text-sm text-slate-600">Permissions are modeled as data rather than scattered as hard-coded UI conditions across separate views.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                            <h4 class="font-semibold text-slate-900 mb-1"><i class="fa-solid fa-cubes text-blue-500 mr-2"></i>Composable Modules</h4>
+                            <p class="text-sm text-slate-600">Future ERP modules can be represented as permission records and implemented as independent API layers without changing the IAM core.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                            <h4 class="font-semibold text-slate-900 mb-1"><i class="fa-solid fa-link text-emerald-500 mr-2"></i>Relational Integrity</h4>
+                            <p class="text-sm text-slate-600">PostgreSQL relationships prevent orphaned records; Prisma provides a strictly-typed client layer over them.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                            <h4 class="font-semibold text-slate-900 mb-1"><i class="fa-solid fa-chart-line text-purple-500 mr-2"></i>Operational Scale</h4>
+                            <p class="text-sm text-slate-600">A separate SPA and API tier allow each layer to be deployed and scaled independently behind Nginx proxy routing.</p>
+                        </div>
+                    </div>
+                    <blockquote class="mt-6 border-l-4 border-amber-500 bg-amber-50/50 p-4 rounded-r-xl text-sm text-amber-900">
+                        <p class="font-medium"><i class="fa-solid fa-triangle-exclamation mr-1.5"></i>Architectural Note on Multi-Tenancy</p>
+                        <p class="mt-1 text-amber-800">The present schema is single-organization. Multi-tenancy is a planned extension. A robust future iteration will introduce an <code class="bg-amber-100/80 px-1 rounded font-mono text-xs">Organization</code> schema and require tenant boundaries on all domain queries and unique constraints.</p>
+                    </blockquote>
+                </section>
+
+                <section id="architecture" class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="p-2.5 bg-indigo-50 text-indigo-600 rounded-lg"><i class="fa-solid fa-sitemap text-xl"></i></div>
+                        <h2 class="text-2xl font-bold text-slate-950">2. System Architecture & Folder Pattern</h2>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        The backend follows a <strong>modular layered architecture</strong>. Each business capability is isolated under <code class="bg-slate-100 px-1 py-0.5 rounded text-rose-600 font-mono text-sm">src/modules/&lt;module&gt;</code> and exposes its own routes, controllers, services, types/DTOs, and mappers. Requests gracefully move down through predefined layers:
+                    </p>
+
+                    <div class="bg-slate-900 text-slate-300 p-4 rounded-xl mb-6 overflow-x-auto text-xs font-mono border border-slate-800 shadow-inner flex justify-between items-center whitespace-nowrap min-w-full">
+                        <span>React View</span> <i class="fa-solid fa-arrow-right text-slate-600 mx-1"></i>
+                        <span>API Helper</span> <i class="fa-solid fa-arrow-right text-slate-600 mx-1"></i>
+                        <span>Axios Interceptor</span> <i class="fa-solid fa-arrow-right text-slate-600 mx-1"></i>
+                        <span class="text-indigo-400 font-bold">/api/v1 Route</span> <i class="fa-solid fa-arrow-right text-slate-600 mx-1"></i>
+                        <span>Controller</span> <i class="fa-solid fa-arrow-right text-slate-600 mx-1"></i>
+                        <span>Service</span> <i class="fa-solid fa-arrow-right text-slate-600 mx-1"></i>
+                        <span class="text-emerald-400 font-bold">Prisma Client</span> <i class="fa-solid fa-arrow-right text-slate-600 mx-1"></i>
+                        <span>PostgreSQL</span>
+                    </div>
+
+                    <details class="group border border-slate-200 rounded-xl overflow-hidden bg-slate-50/50">
+                        <summary class="flex justify-between items-center font-medium text-slate-700 p-4 cursor-pointer select-none hover:bg-slate-100 transition-colors">
+                            <span><i class="fa-regular fa-folder-open text-amber-500 mr-2"></i>View Project Directory Structure Tree</span>
+                            <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-slate-400"></i></span>
+                        </summary>
+                        <div class="p-4 bg-slate-950 text-slate-300 font-mono text-xs border-t border-slate-200 overflow-x-auto max-h-96">
+<pre>
+E:\erp
+├── web.erp/                              # React/Vite client
+│   ├── src/
+│   │   ├── api/                           # Axios instance and feature API helpers
+│   │   ├── components/gaurd/              # Client-side route authorization
+│   │   └── store/                         # Redux Toolkit slices and typed hooks
+├── api.erp/                              # Express/TypeScript API
+│   ├── prisma/
+│   │   ├── schemas/                       # Prisma datasource and IAM model files
+│   │   └── migrations/                    # Versioned PostgreSQL DDL
+│   └── src/
+│       ├── modules/
+│       │   ├── auth/                      # Login controller/service/mapper/routes
+│       │   ├── iam/                       # Roles and permission-matrix reads
+│       │   └── user/                      # User CRUD orchestration
+└── nginx/                                 # Local reverse-proxy configuration
+</pre>
+                        </div>
+                    </details>
+                </section>
+
+                <section id="database" class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="p-2.5 bg-emerald-50 text-emerald-600 rounded-lg"><i class="fa-solid fa-database text-xl"></i></div>
+                        <h2 class="text-2xl font-bold text-slate-950">3. Database Design & Schema Modeling</h2>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Prisma splits schemas into logical components (<code class="bg-slate-100 px-1 py-0.5 rounded text-rose-600 font-mono text-sm">base.prisma</code> and <code class="bg-slate-100 px-1 py-0.5 rounded text-rose-600 font-mono text-sm">iam.prisma</code>) which compile down to native versioned tables. Service methods use strictly-typed hooks to query data.
+                    </p>
+
+                    <div class="overflow-x-auto border border-slate-200 rounded-xl shadow-sm mb-4">
+                        <table class="min-w-full divide-y divide-slate-200 text-sm text-left">
+                            <thead class="bg-slate-50 text-slate-700 uppercase tracking-wider text-xs font-semibold">
+                                <tr>
+                                    <th class="px-6 py-4">Model Name</th>
+                                    <th class="px-6 py-4">Purpose and Relationships</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 text-slate-600">
+                                <tr class="hover:bg-slate-50/70 transition-colors">
+                                    <td class="px-6 py-4 font-mono font-semibold text-indigo-600">User</td>
+                                    <td class="px-6 py-4">Unique indexed <code class="bg-slate-100 text-xs px-1 rounded">userEmail</code>, bcrypt password hash, and audit timestamps. Many-to-many relationship with roles.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/70 transition-colors">
+                                    <td class="px-6 py-4 font-mono font-semibold text-indigo-600">Role</td>
+                                    <td class="px-6 py-4">A named authority grouping connecting users and unique application permission rules via <code class="bg-slate-100 text-xs px-1 rounded">RolePermission</code>.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/70 transition-colors">
+                                    <td class="px-6 py-4 font-mono font-semibold text-indigo-600">Permission</td>
+                                    <td class="px-6 py-4">Master catalog of module boundaries, identified by a unique key matching features (e.g., <code class="bg-slate-100 text-xs px-1 rounded">students</code>).</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/70 transition-colors">
+                                    <td class="px-6 py-4 font-mono font-semibold text-indigo-600">RolePermission</td>
+                                    <td class="px-6 py-4 bg-emerald-50/30 font-medium">Explicit compound primary key matrix holding dynamic contextual access decisions: <code class="bg-slate-100 text-xs px-1 rounded">canRead</code>, <code class="bg-slate-100 text-xs px-1 rounded">canAdd</code>, <code class="bg-slate-100 text-xs px-1 rounded">canEdit</code>, <code class="bg-slate-100 text-xs px-1 rounded">canDelete</code>.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="security" class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="p-2.5 bg-rose-50 text-rose-600 rounded-lg"><i class="fa-solid fa-lock text-xl"></i></div>
+                        <h2 class="text-2xl font-bold text-slate-950">4. Security & Authentication Architecture</h2>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-slate-900 mb-3">Granular Authorization Metrics</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Server-side computations dynamically process access metrics across intersecting data layers via an <strong>allow-if-any-role-allows</strong> architectural standard. 
+                    </p>
+
+                    <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                        <h4 class="font-semibold text-amber-900 mb-2"><i class="fa-solid fa-circle-exclamation mr-2"></i>Security Hardening Items Checklist</h4>
+                        <ul class="space-y-2 text-sm text-amber-800 list-disc list-inside">
+                            <li>Mount core validation middleware uniformly across all non-public endpoints.</li>
+                            <li>Enforce rigorous server-side authorization evaluation instead of purely relying on visual UI layer guards.</li>
+                            <li>Transition tokens from browser local storage over to cryptographic, secure HTTP-only cookies.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="performance" class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="p-2.5 bg-amber-50 text-amber-600 rounded-lg"><i class="fa-solid fa-gauge-high text-xl"></i></div>
+                        <h2 class="text-2xl font-bold text-slate-950">5. Frontend Performance Engineering</h2>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        The single-page client decouples presentation slices from validation matrix states. Async thunk abstractions initialize role sets asynchronously via parallel execution configurations.
+                    </p>
+                    <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl space-y-3">
+                        <div class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-bolt text-amber-500 mt-1"></i>
+                            <div>
+                                <span class="font-semibold text-slate-900 block">Code Splitting Boundaries</span>
+                                <span class="text-slate-600">Asynchronous feature views leverage native lazy structures wrapped in customized shell suspension containers.</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="milestones" class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="p-2.5 bg-purple-50 text-purple-600 rounded-lg"><i class="fa-solid fa-flag text-xl"></i></div>
+                        <h2 class="text-2xl font-bold text-slate-950">6. Current Status & Next Steps</h2>
+                    </div>
+                    <div class="border-l-2 border-indigo-200 pl-4 ml-2 space-y-4 text-sm text-slate-600">
+                        <div>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-1 rounded-full mb-1">Active State</span>
+                            <p>The application engine successfully manages identity tokens, state machines, routing rules, and persistence generation frameworks. Core administrative capabilities remain focused around verification boundaries prior to expanding system features.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="devops" class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="p-2.5 bg-indigo-50 text-indigo-600 rounded-lg"><i class="fa-solid fa-terminal text-xl"></i></div>
+                        <h2 class="text-2xl font-bold text-slate-950">7. Production DevOps & CI/CD Pipelines</h2>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        The live infrastructure architecture maps an autonomous production ecosystem built inside a <strong>DigitalOcean Droplet</strong>. It handles decoupling boundaries via <strong>Nginx multi-domain proxy maps</strong> and manages continuous server operations through <strong>PM2 process managers</strong>.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                        <div class="bg-slate-900 text-slate-200 p-4 rounded-xl border border-slate-800 flex flex-col justify-between shadow-sm">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs uppercase tracking-wider text-indigo-400 font-bold font-mono">1. Git Source</span>
+                                    <i class="fa-brands fa-github text-lg text-slate-400"></i>
+                                </div>
+                                <p class="text-xs text-slate-400">Trigger on remote commit</p>
+                            </div>
+                            <div class="mt-4 pt-2 border-t border-slate-800 text-[11px] font-mono text-emerald-400">
+                                push to branches: [main]
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900 text-slate-200 p-4 rounded-xl border border-slate-800 flex flex-col justify-between shadow-sm">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs uppercase tracking-wider text-amber-400 font-bold font-mono">2. GitHub Runner</span>
+                                    <i class="fa-solid fa-gear text-lg text-slate-400 animate-spin" style="animation-duration: 8s;"></i>
+                                </div>
+                                <p class="text-xs text-slate-400">Environment isolated build</p>
+                            </div>
+                            <div class="mt-4 pt-2 border-t border-slate-800 text-[11px] font-mono text-slate-400">
+                                Node v20 (Web) / v22 (API)<br>
+                                Prisma Client compilation
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900 text-slate-200 p-4 rounded-xl border border-slate-800 flex flex-col justify-between shadow-sm">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs uppercase tracking-wider text-sky-400 font-bold font-mono">3. DO Droplet</span>
+                                    <i class="fa-brands fa-digitalocean text-lg text-sky-400"></i>
+                                </div>
+                                <p class="text-xs text-slate-400">Automated live atomic delivery</p>
+                            </div>
+                            <div class="mt-4 pt-2 border-t border-slate-800 text-[11px] font-mono text-sky-400">
+                                SCP Asset Transmissions<br>
+                                PM2 Reload / Nginx Hook
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-slate-900 mb-3">CI/CD Engine Implementations</h3>
+                    <div class="space-y-4">
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
+                            <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+                                <span class="font-mono text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded"><i class="fa-brands fa-react mr-1.5"></i>web.erp Pipeline</span>
+                                <span class="text-xs font-mono text-slate-500">Target: /var/www/web.erp</span>
+                            </div>
+                            <p class="text-sm text-slate-600 mb-3">
+                                Enforces strict environment secret validations before configuring a <strong>Node 20</strong> build image. Compiles optimized production static sets using clean tree-shaking parameters, transmits artifacts over port 22 using Appleboy SCP actions, resolves web server directory ownership flags to <code class="bg-slate-100 text-xs font-mono text-rose-600 px-1">www-data</code>, and triggers a clean, zero-downtime Nginx configuration hot reload.
+                            </p>
+                        </div>
+
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
+                            <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+                                <span class="font-mono text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded"><i class="fa-brands fa-node-js mr-1.5"></i>api.erp Pipeline</span>
+                                <span class="text-xs font-mono text-slate-500">Target: /root/api.erp</span>
+                            </div>
+                            <p class="text-sm text-slate-600 mb-3">
+                                Spins up an <strong>Ubuntu Virtual Environment running Node 22</strong>. Injects strict database parameters to generate fully optimized, type-safe Prisma binary client sets before initiating build steps. Transmits files while excluding developmental telemetry dependencies via <code class="bg-slate-100 text-xs font-mono text-rose-600 px-1">--omit=dev</code> flags, safely triggers localized environment NVM setups, and hot-starts the backend runtime process loop via PM2 script bindings.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-slate-900 rounded-xl border border-slate-800">
+                        <h4 class="text-xs uppercase font-bold text-slate-400 tracking-wider mb-2 font-mono">Active Server State Engine Logs</h4>
+                        <div class="text-xs font-mono text-emerald-400 space-y-1 bg-black/40 p-3 rounded border border-slate-800">
+                            <p class="text-slate-500"># Continuous Process Management State Output</p>
+                            <p class="flex justify-between"><span>$ pm2 restart api-erp || pm2 start dist/server.js</span> <span class="text-slate-500">[ONLINE]</span></p>
+                            <p class="text-blue-400">$ pm2 save <span class="text-slate-500">[Saved process snapshot mapping successfully]</span></p>
+                            <p class="mt-2 text-slate-500"># Reverse Proxy Status Routing Map</p>
+                            <p class="text-yellow-400">✓ erp.domain.com ➔ Proxy Pass ➔ /var/www/web.erp</p>
+                            <p class="text-yellow-400">✓ api.erp.domain.com ➔ Proxy Pass ➔ Localhost Address Process Loop</p>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-slate-500 text-xs text-center py-8 border-t border-slate-800 mt-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2026 Enterprise ERP System Architecture Case Study.</p>
+            <p class="mt-2">Generated for static web hosting deployment environments via GitHub Pages infrastructure mappings.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const link = document.querySelector(`nav a[href="#${id}"]`);
+                    if (link) {
+                        if (entry.intersectionRatio > 0.1) {
+                            document.querySelectorAll('nav a').forEach(el => el.classList.remove('active'));
+                            link.classList.add('active');
+                        }
+                    }
+                });
+            }, { threshold: [0.1, 0.4] });
+
+            document.querySelectorAll('section[id]').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
